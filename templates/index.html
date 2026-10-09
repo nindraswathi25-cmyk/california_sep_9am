@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=2.0">
+
+    <title>California House Price Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <!-- Header -->
+
+            <div class="header">
+
+                <h1>🏠 California House Price Prediction</h1>
+
+                <p>
+                    Enter the house details to predict the price
+                </p>
+
+            </div>
+
+
+            <!-- Prediction Form -->
+
+            <form action="/predict" method="GET">
+
+                <div class="form-grid">
+
+
+                    <!-- MedInc -->
+
+                    <div class="input-group">
+
+                        <label for="MedInc">
+                            Median Income
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="MedInc"
+                            name="MedInc"
+                            placeholder="Enter Median Income"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- HouseAge -->
+
+                    <div class="input-group">
+
+                        <label for="HouseAge">
+                            House Age
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="HouseAge"
+                            name="HouseAge"
+                            placeholder="Enter House Age"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- AveRooms -->
+
+                    <div class="input-group">
+
+                        <label for="AveRooms">
+                            Average Rooms
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="AveRooms"
+                            name="AveRooms"
+                            placeholder="Enter Average Rooms"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Population -->
+
+                    <div class="input-group">
+
+                        <label for="Population">
+                            Population
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="Population"
+                            name="Population"
+                            placeholder="Enter Population"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- AveOccup -->
+
+                    <div class="input-group">
+
+                        <label for="AveOccup">
+                            Average Occupancy
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="AveOccup"
+                            name="AveOccup"
+                            placeholder="Enter Average Occupancy"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Latitude -->
+
+                    <div class="input-group">
+
+                        <label for="Latitude">
+                            Latitude
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="Latitude"
+                            name="Latitude"
+                            placeholder="Enter Latitude"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Button -->
+
+                <button type="submit">
+                    Predict House Price
+                </button>
+
+
+            </form>
+
+
+            <!-- Prediction Result -->
+
+            {% if prediction is defined %}
+
+            <div class="result">
+
+                <h2>Prediction Result</h2>
+
+                <div class="price">
+
+                    $ {{ "%.2f"|format(prediction) }}
+
+                </div>
+
+                <p>
+                    Estimated House Price
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
